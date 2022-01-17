@@ -1,13 +1,11 @@
 from django.urls import path
 
-import basketapp.views as basketapp
+import mainapp.views as mainapp
 
-from .apps import BasketappConfig
-
-app_name = BasketappConfig.name
+app_name = "mainapp"
 
 urlpatterns = [
-    path("", basketapp.basket, name="view"),
-    path("add/<int:pk>/", basketapp.basket_add, name="add"),
-    path("remove/<int:pk>/", basketapp.basket_remove, name="remove"),
+    path("", mainapp.products, name="index"),
+    path("category/<int:pk>/", mainapp.products, name="category"),
+    path("product/<int:pk>/", mainapp.product, name="product"),
 ]
